@@ -296,14 +296,17 @@ export default function FeaturedProject() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 flex flex-col overflow-y-auto max-h-[800px] pr-2">
-            <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-gray-900 dark:text-gray-100">EaseHealthAI</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 mt-4 font-medium">
-              Enterprise Healthcare Management Platform with AI Clinical Intelligence
-            </p>
+          <div className="order-1 lg:order-2 flex flex-col max-h-[800px]">
+            <div className="flex-shrink-0">
+              <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
+              <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-gray-900 dark:text-gray-100">EaseHealthAI</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-400 mt-4 font-medium">
+                Enterprise Healthcare Management Platform with AI Clinical Intelligence
+              </p>
+            </div>
 
-            <p className="text-base text-gray-700 dark:text-gray-300 mt-6 leading-relaxed">
+            <div className="flex-1 overflow-y-auto mt-6 pr-2">
+            <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               Built for Indian clinics struggling with manual OPD workflows, paper-based records, and time-consuming medical documentation. EaseHealthAI transforms chaotic clinic operations into streamlined digital workflows through intelligent automation, AI-powered clinical assistance, and enterprise-grade security compliance.
             </p>
 
@@ -441,6 +444,7 @@ export default function FeaturedProject() {
                 <li>CDN-optimized static assets</li>
                 <li>Automated backup and disaster recovery</li>
               </ul>
+            </div>
             </div>
 
           </div>
