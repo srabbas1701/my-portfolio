@@ -1,4 +1,4 @@
-import { Globe, Brain, Shield, Accessibility, Database, ExternalLink, Github, ChevronLeft, ChevronRight, Calendar, PlayCircle, FileText, Target } from 'lucide-react';
+import { Globe, Brain, Shield, Accessibility, Database, ExternalLink, Github, ChevronLeft, ChevronRight, Calendar, PlayCircle, FileText, Target, Code2, Server, Sparkles, Layers } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import Section from '../layout/Section';
 import Button from '../ui/Button';
@@ -230,41 +230,65 @@ export default function FeaturedProject() {
             </div>
 
             <div className="mt-8">
-              <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-4">TECH STACK:</h4>
+              <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-4 uppercase tracking-wider">Tech Stack:</h4>
 
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Frontend:</p>
-                  <div className="flex flex-wrap gap-2">
+              <div className="space-y-3">
+                {/* Frontend */}
+                <div className="group relative overflow-hidden rounded-lg border-l-4 border-blue-500 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-950/30 dark:to-transparent p-3 transition-all hover:shadow-md">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Code2 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    <p className="text-xs font-bold text-blue-700 dark:text-blue-300 uppercase tracking-wide">Frontend</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
                     {['React 18', 'TypeScript', 'Tailwind CSS', 'Vite'].map(tech => (
-                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                      <span key={tech} className="px-2 py-0.5 text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-200 rounded-md border border-blue-200 dark:border-blue-800">
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div>
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Backend & Database:</p>
-                  <div className="flex flex-wrap gap-2">
+                {/* Backend & Database */}
+                <div className="group relative overflow-hidden rounded-lg border-l-4 border-emerald-500 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-950/30 dark:to-transparent p-3 transition-all hover:shadow-md">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Server className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <p className="text-xs font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">Backend & Database</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
                     {['Supabase', 'PostgreSQL', 'Row-Level Security'].map(tech => (
-                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                      <span key={tech} className="px-2 py-0.5 text-xs font-medium bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-200 rounded-md border border-emerald-200 dark:border-emerald-800">
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div>
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">AI & Automation:</p>
-                  <div className="flex flex-wrap gap-2">
+                {/* AI & Automation */}
+                <div className="group relative overflow-hidden rounded-lg border-l-4 border-purple-500 bg-gradient-to-r from-purple-50 to-transparent dark:from-purple-950/30 dark:to-transparent p-3 transition-all hover:shadow-md">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    <p className="text-xs font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wide">AI & Automation</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
                     {['Claude 3.7 Sonnet', 'n8n', 'OCR', 'RAG'].map(tech => (
-                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                      <span key={tech} className="px-2 py-0.5 text-xs font-medium bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-800">
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div>
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Infrastructure:</p>
-                  <div className="flex flex-wrap gap-2">
+                {/* Infrastructure */}
+                <div className="group relative overflow-hidden rounded-lg border-l-4 border-orange-500 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-950/30 dark:to-transparent p-3 transition-all hover:shadow-md">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Layers className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+                    <p className="text-xs font-bold text-orange-700 dark:text-orange-300 uppercase tracking-wide">Infrastructure</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
                     {['Real-time Sync', 'RBAC', 'Audit Logging', 'DPDP Compliant'].map(tech => (
-                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                      <span key={tech} className="px-2 py-0.5 text-xs font-medium bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-200 rounded-md border border-orange-200 dark:border-orange-800">
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </div>
