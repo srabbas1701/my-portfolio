@@ -1,4 +1,4 @@
-import { Globe, Brain, Shield, Accessibility, Database, ExternalLink, Github, ChevronLeft, ChevronRight, Calendar, PlayCircle, FileText, Target, Code2, Server, Sparkles, Layers } from 'lucide-react';
+import { Globe, Brain, Shield, Accessibility, Database, ExternalLink, Calendar, PlayCircle, FileText, Target, Code2, Server, Sparkles, Layers } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import Section from '../layout/Section';
 import Button from '../ui/Button';
@@ -138,68 +138,40 @@ export default function FeaturedProject() {
                 >
                   {loading ? (
                     <div className="flex-shrink-0 w-full snap-center">
-                      <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
+                      <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
                         <div className="text-gray-600 dark:text-gray-400">Loading slides...</div>
                       </div>
                     </div>
                   ) : slides.length > 0 ? (
                     slides.map((slide) => (
                       <div key={slide.id} className="flex-shrink-0 w-full snap-center">
-                        <div className="aspect-[4/3] relative bg-gray-100 dark:bg-gray-900">
+                        <div className="aspect-[16/9] relative bg-gray-100 dark:bg-gray-900">
                           <img
                             src={slide.image_url}
                             alt={slide.title}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                           />
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                            <div className="text-white">
-                              <div className="text-lg font-semibold mb-1">
-                                {slide.title}
-                              </div>
-                              <div className="text-sm text-gray-200">
-                                {slide.description}
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     ))
                   ) : (
                     <div className="flex-shrink-0 w-full snap-center">
-                      <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
+                      <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
                         <div className="text-gray-600 dark:text-gray-400">No slides available</div>
                       </div>
                     </div>
                   )}
                 </div>
 
-                <button
-                  onClick={() => scroll('left')}
-                  disabled={currentSlide === 0}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  aria-label="Previous slide"
-                >
-                  <ChevronLeft className="w-6 h-6 text-gray-800 dark:text-gray-200" />
-                </button>
-
-                <button
-                  onClick={() => scroll('right')}
-                  disabled={currentSlide === slides.length - 1}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  aria-label="Next slide"
-                >
-                  <ChevronRight className="w-6 h-6 text-gray-800 dark:text-gray-200" />
-                </button>
-
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
                   {slides.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
+                      className={`rounded-full transition-all ${
                         currentSlide === index
-                          ? 'bg-primary w-8'
-                          : 'bg-gray-400 dark:bg-gray-600'
+                          ? 'bg-white w-10 h-3'
+                          : 'bg-white/50 w-3 h-3 hover:bg-white/70'
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
