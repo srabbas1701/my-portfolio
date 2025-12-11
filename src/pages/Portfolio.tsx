@@ -136,14 +136,18 @@ export default function Portfolio() {
                   </Button>
                 </div>
               </div>
-              <div className="p-8 lg:p-12 overflow-y-auto max-h-[600px] order-1 md:order-2">
-                <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mt-2 mb-2">
-                  Discovery Bionics
-                </h2>
-                <p className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-4">
-                  Corporate Platform for Premier Biotech Distribution Network
-                </p>
+              <div className="p-8 lg:p-12 max-h-[600px] order-1 md:order-2 flex flex-col">
+                <div className="flex-shrink-0">
+                  <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mt-2 mb-2">
+                    Discovery Bionics
+                  </h2>
+                  <p className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-4">
+                    Corporate Platform for Premier Biotech Distribution Network
+                  </p>
+                </div>
+
+                <div className="flex-1 overflow-y-auto pr-2">
                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                   Built scalable digital presence for India's leading biotech distribution company serving 200+ research institutions and premier laboratories. The challenge: present 200+ complex product SKUs from 8+ global brands in a way that helps scientists and procurement officers quickly find exactly what they need—from reagents to lab equipment.
                 </p>
@@ -204,6 +208,7 @@ export default function Portfolio() {
                     <Badge variant="outline">Custom Taxonomy</Badge>
                     <Badge variant="outline">Performance Optimization</Badge>
                   </div>
+                </div>
                 </div>
               </div>
             </div>

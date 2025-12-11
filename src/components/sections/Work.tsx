@@ -159,15 +159,19 @@ export default function Work() {
                   </div>
                 </div>
 
-                <div className="p-6 md:p-8 flex flex-col overflow-y-auto max-h-[500px] md:max-h-[700px]">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                    {project.title}
-                  </h3>
-                  {project.subtitle && (
-                    <p className="text-base font-medium text-primary mb-4">
-                      {project.subtitle}
-                    </p>
-                  )}
+                <div className="p-6 md:p-8 flex flex-col max-h-[500px] md:max-h-[700px]">
+                  <div className="flex-shrink-0">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                      {project.title}
+                    </h3>
+                    {project.subtitle && (
+                      <p className="text-base font-medium text-primary mb-4">
+                        {project.subtitle}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="flex-1 overflow-y-auto pr-2">
                   <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
                     {project.description}
                   </p>
@@ -233,6 +237,7 @@ export default function Work() {
                         </Badge>
                       ))}
                     </div>
+                  </div>
                   </div>
                 </div>
               </div>
