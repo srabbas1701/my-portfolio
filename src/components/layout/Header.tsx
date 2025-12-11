@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
 import Logo from '../ui/Logo';
 import ThemeToggle from '../ui/ThemeToggle';
@@ -8,6 +9,7 @@ import Container from './Container';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,23 +21,36 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Work', href: '#work' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/', isRoute: true },
+    { label: 'About', href: '/about', isRoute: true },
+    { label: 'Work', href: '#work', isRoute: false },
+    { label: 'Skills', href: '#skills', isRoute: false },
+    { label: 'Contact', href: '#contact', isRoute: false },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, isRoute: boolean) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+
+    if (isRoute) {
+      return; // Let React Router handle route navigation
+    }
+
+    // Handle anchor navigation on home page
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first then scroll
+      window.location.href = `/${href}`;
+    } else {
+      // If on home page, scroll to section
+      const element = document.querySelector(href);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
@@ -55,17 +70,27 @@ export default function Header() {
 
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
-                className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium"
-              >
-                {item.label}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href, item.isRoute);
+                  }}
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium"
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             <Button variant="primary" size="sm" icon={Calendar} onClick={() => window.open('https://calendly.com/srabbas1701/free-15-min-website-audit', '_blank')}>
               Schedule Call
@@ -91,17 +116,28 @@ export default function Header() {
           <Container>
             <nav className="py-4 flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium py-2"
-                >
-                  {item.label}
-                </a>
+                item.isRoute ? (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium py-2"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href, item.isRoute);
+                    }}
+                    className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium py-2"
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
               <Button variant="primary" size="sm" icon={Calendar} onClick={() => window.open('https://calendly.com/srabbas1701/free-15-min-website-audit', '_blank')}>
                 Schedule Call
