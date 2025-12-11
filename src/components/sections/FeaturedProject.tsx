@@ -228,6 +228,48 @@ export default function FeaturedProject() {
                 View Code
               </Button>
             </div>
+
+            <div className="mt-8">
+              <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-4">TECH STACK:</h4>
+
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Frontend:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['React 18', 'TypeScript', 'Tailwind CSS', 'Vite'].map(tech => (
+                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Backend & Database:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Supabase', 'PostgreSQL', 'Row-Level Security'].map(tech => (
+                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">AI & Automation:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Claude 3.7 Sonnet', 'n8n', 'OCR', 'RAG'].map(tech => (
+                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Infrastructure:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Real-time Sync', 'RBAC', 'Audit Logging', 'DPDP Compliant'].map(tech => (
+                      <Badge key={tech} variant="outline" size="sm">{tech}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="order-1 lg:order-2 overflow-y-auto max-h-[800px] pr-4">
@@ -363,15 +405,6 @@ export default function FeaturedProject() {
                   <li>WCAG 2.1 AA accessibility compliant</li>
                   <li>Mobile-first responsive design</li>
                 </ul>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">TECH STACK:</h4>
-              <div className="flex flex-wrap gap-2">
-                {['React 18.3', 'TypeScript 5.5', 'Supabase', 'PostgreSQL', 'Claude 3.7 Sonnet', 'n8n Workflows', 'Telegram API', 'PDF OCR', 'Tailwind CSS', 'Vite', 'Row-Level Security', 'RBAC'].map(tech => (
-                  <Badge key={tech} variant="outline">{tech}</Badge>
-                ))}
               </div>
             </div>
 
