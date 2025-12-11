@@ -134,7 +134,7 @@ export default function FeaturedProject() {
     <Section id="easehealthai" className="bg-gradient-to-br from-secondary/5 via-primary/5 to-accent/5">
       <div ref={ref} className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="flex flex-col order-2 lg:order-1">
+          <div className="flex flex-col order-2 lg:order-1 overflow-y-auto max-h-[800px] pr-2">
             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
               <div className="relative">
                 <div
@@ -296,7 +296,7 @@ export default function FeaturedProject() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 flex flex-col h-full">
+          <div className="order-1 lg:order-2 flex flex-col overflow-y-auto max-h-[800px] pr-2">
             <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
             <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-gray-900 dark:text-gray-100">EaseHealthAI</h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 mt-4 font-medium">
