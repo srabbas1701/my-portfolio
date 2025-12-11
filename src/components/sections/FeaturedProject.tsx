@@ -138,14 +138,14 @@ export default function FeaturedProject() {
                 >
                   {loading ? (
                     <div className="flex-shrink-0 w-full snap-center">
-                      <div className="aspect-[16/10] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
+                      <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
                         <div className="text-gray-600 dark:text-gray-400">Loading slides...</div>
                       </div>
                     </div>
                   ) : slides.length > 0 ? (
                     slides.map((slide) => (
                       <div key={slide.id} className="flex-shrink-0 w-full snap-center">
-                        <div className="aspect-[16/10] relative bg-gray-100 dark:bg-gray-900">
+                        <div className="aspect-[4/3] relative bg-gray-100 dark:bg-gray-900">
                           <img
                             src={slide.image_url}
                             alt={slide.title}
@@ -166,7 +166,7 @@ export default function FeaturedProject() {
                     ))
                   ) : (
                     <div className="flex-shrink-0 w-full snap-center">
-                      <div className="aspect-[16/10] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
+                      <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center">
                         <div className="text-gray-600 dark:text-gray-400">No slides available</div>
                       </div>
                     </div>
@@ -211,15 +211,12 @@ export default function FeaturedProject() {
               </Badge>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-4">
-              <Button variant="primary" icon={ExternalLink}>
+            <div className="mt-8 flex flex-wrap gap-4 justify-center">
+              <Button variant="primary" icon={ExternalLink} className="flex-1 min-w-[200px]">
                 View Live Demo
               </Button>
-              <Button variant="secondary" icon={PlayCircle}>
+              <Button variant="secondary" icon={PlayCircle} className="flex-1 min-w-[200px]">
                 Watch Video
-              </Button>
-              <Button variant="ghost" icon={Github} onClick={() => window.open('https://github.com/srabbas1701/EaseHealth-AI', '_blank')}>
-                View Code
               </Button>
             </div>
 
