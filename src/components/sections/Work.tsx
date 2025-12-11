@@ -123,11 +123,11 @@ export default function Work() {
               className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
             >
               <div className="grid md:grid-cols-[40%_60%] gap-0">
-                <div className="relative bg-gray-100 dark:bg-gray-900">
+                <div className="relative bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4 min-h-[400px] md:min-h-[500px]">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className={`w-full h-full ${index === 0 || index === 2 ? 'object-contain' : 'object-cover'}`}
+                    className="max-w-full max-h-full object-contain"
                   />
                   {project.status && (
                     <div className="absolute top-4 right-4">
@@ -138,7 +138,7 @@ export default function Work() {
                   )}
                 </div>
 
-                <div className="p-6 md:p-8 flex flex-col justify-center overflow-y-auto max-h-[700px]">
+                <div className="p-6 md:p-8 flex flex-col overflow-y-auto max-h-[500px] md:max-h-[700px]">
                   <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                     {project.title}
                   </h3>

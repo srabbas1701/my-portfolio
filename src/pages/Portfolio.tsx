@@ -118,11 +118,11 @@ export default function Portfolio() {
 
           <div className="mt-16 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl overflow-hidden">
             <div className="grid md:grid-cols-[45%_55%] gap-0">
-              <div className="h-full min-h-[400px] md:min-h-[600px] order-2 md:order-1">
+              <div className="flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-900 min-h-[400px] md:min-h-[600px] order-2 md:order-1">
                 <img
                   src="/images/discovery-bionics.jpg"
                   alt="Discovery Bionics Website"
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full object-contain"
                 />
               </div>
               <div className="p-8 lg:p-12 overflow-y-auto max-h-[600px] order-1 md:order-2">
