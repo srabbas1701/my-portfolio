@@ -118,12 +118,23 @@ export default function Portfolio() {
 
           <div className="mt-16 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl overflow-hidden">
             <div className="grid md:grid-cols-[45%_55%] gap-0">
-              <div className="flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-900 min-h-[400px] md:min-h-[600px] order-2 md:order-1">
-                <img
-                  src="/images/discovery-bionics.jpg"
-                  alt="Discovery Bionics Website"
-                  className="max-w-full max-h-full object-contain"
-                />
+              <div className="flex flex-col bg-gray-100 dark:bg-gray-900 order-2 md:order-1">
+                <div className="flex items-center justify-center p-4 min-h-[300px] md:min-h-[450px] flex-1">
+                  <img
+                    src="/images/discovery-bionics.jpg"
+                    alt="Discovery Bionics Website"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="p-4 md:p-6 border-t border-gray-200 dark:border-gray-700">
+                  <Button
+                    variant="primary"
+                    icon={ExternalLink}
+                    onClick={() => window.open('https://discoverybionics.com/', '_blank')}
+                  >
+                    Visit Live Website
+                  </Button>
+                </div>
               </div>
               <div className="p-8 lg:p-12 overflow-y-auto max-h-[600px] order-1 md:order-2">
                 <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
@@ -194,14 +205,6 @@ export default function Portfolio() {
                     <Badge variant="outline">Performance Optimization</Badge>
                   </div>
                 </div>
-
-                <Button
-                  variant="primary"
-                  icon={ExternalLink}
-                  onClick={() => window.open('https://discoverybionics.com/', '_blank')}
-                >
-                  Visit Live Website
-                </Button>
               </div>
             </div>
           </div>

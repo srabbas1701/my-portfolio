@@ -123,19 +123,40 @@ export default function Work() {
               className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
             >
               <div className="grid md:grid-cols-[40%_60%] gap-0">
-                <div className="relative bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4 min-h-[400px] md:min-h-[500px]">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                  {project.status && (
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-primary text-white px-3 py-1">
-                        {project.status}
-                      </Badge>
+                <div className="flex flex-col bg-gray-100 dark:bg-gray-900">
+                  <div className="relative flex items-center justify-center p-4 min-h-[300px] md:min-h-[400px] flex-1">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                    {project.status && (
+                      <div className="absolute top-4 right-4">
+                        <Badge className="bg-primary text-white px-3 py-1">
+                          {project.status}
+                        </Badge>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-4 md:p-6 border-t border-gray-200 dark:border-gray-700">
+                    <div className="flex flex-wrap gap-3">
+                      {project.liveLink !== '#' && (
+                        <Button
+                          variant="primary"
+                          icon={ExternalLink}
+                          onClick={() => window.open(project.liveLink, '_blank')}
+                        >
+                          View Live Demo
+                        </Button>
+                      )}
+                      {project.videoDemo && (
+                        <Button variant="secondary" icon={Play}>
+                          Watch Video
+                        </Button>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
 
                 <div className="p-6 md:p-8 flex flex-col overflow-y-auto max-h-[500px] md:max-h-[700px]">
@@ -212,23 +233,6 @@ export default function Work() {
                         </Badge>
                       ))}
                     </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-3 mt-4">
-                    {project.liveLink !== '#' && (
-                      <Button
-                        variant="primary"
-                        icon={ExternalLink}
-                        onClick={() => window.open(project.liveLink, '_blank')}
-                      >
-                        View Live
-                      </Button>
-                    )}
-                    {project.videoDemo && (
-                      <Button variant="secondary" icon={Play}>
-                        Watch Demo
-                      </Button>
-                    )}
                   </div>
                 </div>
               </div>
