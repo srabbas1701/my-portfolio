@@ -78,26 +78,61 @@ export default function About() {
       icon: Target,
       title: 'Enterprise Caliber, Startup Agility',
       description: 'You get Fortune 500-level architecture and program management—without the enterprise price tag, timeline, or bureaucracy.',
+      detailsTitle: 'What this means in practice:',
+      details: [
+        'I\'ve architected systems handling 100,000+ concurrent users at scale—I know how to design for growth from day one',
+        'I\'ve managed $50M+ technology portfolios with full P&L accountability—I understand budget constraints and ROI requirements',
+        'I know how to navigate enterprise complexity and compliance requirements—but I execute with startup speed',
+        'You get the strategic thinking of a Fortune 500 CTO with the hands-on delivery of a senior engineer',
+      ],
     },
     {
       icon: Zap,
       title: 'No Rookie Mistakes',
       description: '15+ years leading complex programs means I know what works, what doesn\'t, and how to deliver on time without technical debt.',
+      detailsTitle: 'Why this matters:',
+      details: [
+        'I\'ve seen every common architectural mistake—and know how to avoid them before they become costly problems',
+        'I understand the difference between "working" and "production-ready"—your system won\'t need a rewrite in 6 months',
+        'I\'ve delivered dozens of enterprise projects on time and on budget—I know how to estimate accurately and manage scope',
+        'I build with proper error handling, logging, monitoring, and documentation from the start—not as an afterthought',
+      ],
     },
     {
       icon: Shield,
       title: 'Production-Ready from Day One',
       description: 'I don\'t build prototypes that need rewrites. I build systems that scale, with proper security, testing, and documentation built in from the start.',
+      detailsTitle: 'What this means for you:',
+      details: [
+        'Security best practices are baked in—proper authentication, authorization, data encryption, and audit logging from day one',
+        'Systems are designed to scale horizontally—your platform can grow from 100 to 100,000 users without major refactoring',
+        'Comprehensive error handling and monitoring—issues are caught and logged before users experience problems',
+        'Clean, maintainable code with documentation—any developer you hire in the future can understand and extend the system',
+      ],
     },
     {
       icon: Briefcase,
       title: 'Business Outcomes, Not Just Code',
       description: 'My program management background means I understand ROI, stakeholder alignment, and delivery risk—I speak both technical and business language fluently.',
+      detailsTitle: 'What this means in practice:',
+      details: [
+        'I focus on delivering measurable business value—not just implementing features that sound impressive',
+        'I communicate progress and risks in plain English—you always know where the project stands without technical jargon',
+        'I understand stakeholder management and change management—I can help you navigate organizational challenges',
+        'I provide strategic recommendations on build vs. buy, MVP scope, and technical roadmap—not just "tell me what to build"',
+      ],
     },
     {
       icon: Rocket,
       title: 'Full-Stack Ownership',
       description: 'I architect, build, and deploy—you don\'t need to coordinate multiple freelancers. One experienced professional delivering cohesive solutions.',
+      detailsTitle: 'Why this matters:',
+      details: [
+        'Single point of accountability—no finger-pointing between frontend, backend, and infrastructure teams',
+        'Faster delivery—no coordination overhead, context switching, or integration surprises between different contractors',
+        'Consistent quality and architecture—the entire system is designed holistically, not bolted together from disparate parts',
+        'Lower total cost—one experienced professional is more cost-effective than managing multiple junior freelancers',
+      ],
     },
   ];
 
@@ -325,15 +360,34 @@ export default function About() {
                 <Target className="w-8 h-8 text-primary" />
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Why Work With Me</h2>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                {whyWorkWithMe.map((item) => (
+              <div className="space-y-8">
+                {whyWorkWithMe.map((item, index) => (
                   <div
                     key={item.title}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm"
+                    className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-700"
                   >
-                    <item.icon className="w-8 h-8 text-primary mb-3" />
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
+                    <div className="flex items-start gap-4 mb-4">
+                      <item.icon className="w-10 h-10 text-primary flex-shrink-0" />
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{item.title}</h3>
+                        <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">{item.description}</p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 ml-14">
+                      <h4 className="text-base font-bold text-gray-900 dark:text-white mb-4">{item.detailsTitle}</h4>
+                      <ul className="space-y-3">
+                        {item.details.map((detail, detailIndex) => (
+                          <li
+                            key={detailIndex}
+                            className="flex items-start gap-3 text-base text-gray-700 dark:text-gray-300"
+                          >
+                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 ))}
               </div>
