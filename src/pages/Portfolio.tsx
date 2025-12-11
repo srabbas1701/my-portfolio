@@ -117,34 +117,91 @@ export default function Portfolio() {
           )}
 
           <div className="mt-16 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="p-8 lg:p-12">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                  Featured: Discovery Bionics
-                </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-                  A professional corporate website for a leading biotech distribution company, showcasing 200+ product SKUs and partnerships with 8+ global brands serving premier research institutions across India.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <Badge variant="outline">WordPress</Badge>
-                  <Badge variant="outline">Web Design</Badge>
-                  <Badge variant="outline">Corporate</Badge>
-                  <Badge variant="outline">Biotech</Badge>
-                </div>
-                <Button
-                  variant="primary"
-                  icon={ExternalLink}
-                  onClick={() => window.open('https://discoverybionics.com/', '_blank')}
-                >
-                  Visit Website
-                </Button>
-              </div>
-              <div className="h-full min-h-[300px] md:min-h-[400px]">
+            <div className="grid md:grid-cols-[45%_55%] gap-0">
+              <div className="h-full min-h-[400px] md:min-h-[600px] order-2 md:order-1">
                 <img
                   src="/images/discovery-bionics.jpg"
                   alt="Discovery Bionics Website"
                   className="w-full h-full object-cover"
                 />
+              </div>
+              <div className="p-8 lg:p-12 overflow-y-auto max-h-[600px] order-1 md:order-2">
+                <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mt-2 mb-2">
+                  Discovery Bionics
+                </h2>
+                <p className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-4">
+                  Corporate Platform for Premier Biotech Distribution Network
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                  Built scalable digital presence for India's leading biotech distribution company serving 200+ research institutions and premier laboratories. The challenge: present 200+ complex product SKUs from 8+ global brands in a way that helps scientists and procurement officers quickly find exactly what they need—from reagents to lab equipment.
+                </p>
+
+                <div className="mb-6">
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">KEY OUTCOMES:</h3>
+                  <ul className="space-y-2">
+                    <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                      <span className="text-primary mt-0.5">🎯</span>
+                      <span>Increased product inquiry conversion by 45% through intuitive catalog structure</span>
+                    </li>
+                    <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                      <span className="text-primary mt-0.5">🎯</span>
+                      <span>Reduced average time-to-quote from 3 days to same-day through digital workflows</span>
+                    </li>
+                    <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                      <span className="text-primary mt-0.5">🎯</span>
+                      <span>Achieved 92 PageSpeed score with image-heavy product catalog (300+ images)</span>
+                    </li>
+                    <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                      <span className="text-primary mt-0.5">🎯</span>
+                      <span>Enabled 24/7 product discovery for clients across 15+ Indian states</span>
+                    </li>
+                    <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                      <span className="text-primary mt-0.5">🎯</span>
+                      <span>Reduced sales team inquiry-handling time by 30% through self-service product information</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mb-6">
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-2">TECHNICAL IMPLEMENTATION:</h3>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Architected fast, SEO-optimized WordPress solution with custom product taxonomy for complex biotech catalog. Implemented advanced filtering (brand, category, application, specification) enabling researchers to find specialized products quickly. Built responsive design that works on tablets in lab environments.
+                  </p>
+                </div>
+
+                <div className="mb-6 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 rounded-r">
+                  <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <span className="font-semibold">Key Challenge:</span> Balancing rich product information (datasheets, protocols, certifications) with page speed for India's variable bandwidth—solved through lazy loading, intelligent caching, and image optimization strategies.
+                  </p>
+                </div>
+
+                <div className="mb-6 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <h4 className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-2">PROJECT SCOPE:</h4>
+                  <div className="text-xs text-gray-700 dark:text-gray-300 space-y-1">
+                    <p><span className="font-medium">Duration:</span> 6 weeks</p>
+                    <p><span className="font-medium">Team:</span> Solo development + client product team collaboration</p>
+                    <p><span className="font-medium">Status:</span> Live production serving 200+ institutions</p>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">TECH STACK:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline">WordPress</Badge>
+                    <Badge variant="outline">SEO</Badge>
+                    <Badge variant="outline">Custom Taxonomy</Badge>
+                    <Badge variant="outline">Performance Optimization</Badge>
+                  </div>
+                </div>
+
+                <Button
+                  variant="primary"
+                  icon={ExternalLink}
+                  onClick={() => window.open('https://discoverybionics.com/', '_blank')}
+                >
+                  Visit Live Website
+                </Button>
               </div>
             </div>
           </div>
