@@ -57,25 +57,29 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const formElement = e.target as HTMLFormElement;
+      const formDataToSend = new FormData(formElement);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
 
-      if (!response.ok) throw new Error('Failed to submit');
+      const result = await response.json();
 
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        budget: '',
-        projectType: '',
-        timeline: '',
-        message: '',
-      });
+      if (response.ok && result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          budget: '',
+          projectType: '',
+          timeline: '',
+          message: '',
+        });
+      } else {
+        throw new Error(result.message || 'Failed to submit');
+      }
     } catch (error) {
       console.error('Error submitting contact form:', error);
       setSubmitStatus('error');
@@ -103,11 +107,16 @@ export default function Contact() {
                 <p className="text-sm text-gray-600 dark:text-gray-400">All inquiries receive a response within 24 hours</p>
               </div>
 
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="32682837-659b-4961-87e2-8ee6dc0cf45b" />
+                <input type="hidden" name="subject" value="New Project Inquiry from Portfolio" />
+                <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input
                       label="Name"
+                      name="name"
                       placeholder="Your name"
                       required
                       value={formData.name}
@@ -115,6 +124,7 @@ export default function Contact() {
                     />
                     <Input
                       label="Email"
+                      name="email"
                       type="email"
                       placeholder="your@email.com"
                       required
@@ -125,6 +135,7 @@ export default function Contact() {
 
                   <Select
                     label="Project Budget Range"
+                    name="budget"
                     helperText="This helps me understand if we're a good fit"
                     options={budgetOptions}
                     required
@@ -134,6 +145,7 @@ export default function Contact() {
 
                   <Select
                     label="What type of project are you considering?"
+                    name="project_type"
                     helperText="Select the service that best matches your needs"
                     options={projectTypeOptions}
                     required
@@ -143,6 +155,7 @@ export default function Contact() {
 
                   <Select
                     label="When do you need this delivered?"
+                    name="timeline"
                     helperText="Approximate timeline for project start"
                     options={timelineOptions}
                     required
@@ -152,6 +165,7 @@ export default function Contact() {
 
                   <Textarea
                     label="Message / Project Description"
+                    name="message"
                     placeholder="Tell me about your project, challenges, or goals..."
                     rows={5}
                     value={formData.message}
@@ -171,14 +185,17 @@ export default function Contact() {
                   {submitStatus === 'success' && (
                     <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                       <p className="text-sm text-green-700 dark:text-green-400 text-center font-medium">
-                        Thank you! Your inquiry has been submitted successfully. I'll respond within 24 hours.
+                        Thank you! Your inquiry has been received. I'll respond within 24 hours.
                       </p>
                     </div>
                   )}
                   {submitStatus === 'error' && (
                     <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                       <p className="text-sm text-red-700 dark:text-red-400 text-center font-medium">
-                        Failed to send message. Please try again or email me directly.
+                        Oops! Something went wrong. Please email me directly at{' '}
+                        <a href="mailto:sr_abbas@yahoo.com" className="underline hover:no-underline">
+                          sr_abbas@yahoo.com
+                        </a>
                       </p>
                     </div>
                   )}
