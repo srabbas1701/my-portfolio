@@ -4,7 +4,6 @@ import Section from '../layout/Section';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 import { useInView } from '../../hooks/useInView';
-import { supabase } from '../../lib/supabase';
 
 interface ProjectSlide {
   id: string;
@@ -60,13 +59,8 @@ export default function FeaturedProject() {
 
   const fetchSlides = async () => {
     try {
-      const { data, error } = await supabase
-        .from('project_slides')
-        .select('*')
-        .eq('project_id', 'easehealthai')
-        .order('slide_number', { ascending: true });
-
-      if (error) throw error;
+      const response = await fetch('/project_slides.json');
+      const data = await response.json();
       setSlides(data || []);
     } catch (error) {
       console.error('Error fetching slides:', error);

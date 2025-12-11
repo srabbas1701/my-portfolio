@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A modern, full-stack portfolio website built with React, TypeScript, and Supabase. Features a responsive design with dark mode support, project showcases, contact form integration, and dynamic content management.
+A modern portfolio website built with React and TypeScript. Features a responsive design with dark mode support, project showcases, and contact form integration.
 
 ## Features
 
@@ -24,7 +24,7 @@ A modern, full-stack portfolio website built with React, TypeScript, and Supabas
 ### Technical Highlights
 - **Type-Safe**: Full TypeScript implementation
 - **Component Architecture**: Modular, reusable React components
-- **Database Integration**: Supabase for data persistence and content management
+- **Static Content**: JSON-based data management for optimal performance
 - **Form Handling**: Web3Forms API for reliable contact form submissions
 - **Image Optimization**: WebP format with responsive loading
 - **Custom Hooks**: useInView for scroll-triggered animations
@@ -39,9 +39,8 @@ A modern, full-stack portfolio website built with React, TypeScript, and Supabas
 - **Tailwind CSS 3.4.1**: Utility-first styling
 - **Lucide React 0.344.0**: Beautiful icon library
 
-### Backend & Database
-- **Supabase**: PostgreSQL database with Row Level Security
-- **Supabase JS Client 2.57.4**: Database queries and real-time subscriptions
+### Data Management
+- **Static JSON Files**: Fast, efficient content delivery without database overhead
 
 ### Development Tools
 - **ESLint 9.9.1**: Code linting
@@ -54,8 +53,7 @@ A modern, full-stack portfolio website built with React, TypeScript, and Supabas
 ### Prerequisites
 - Node.js (v18 or higher)
 - npm or yarn
-- Supabase account (for database)
-- Web3Forms account (for contact form)
+- Web3Forms account (for contact form - optional)
 
 ### Installation
 
@@ -70,92 +68,29 @@ cd project
 npm install
 ```
 
-3. **Configure environment variables**
-
-Create a `.env` file in the root directory:
-
-```env
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-4. **Set up the database**
-
-The project includes migration files in `supabase/migrations/`:
-- `20251129200535_create_portfolio_tables.sql` - Creates core portfolio tables
-- `20251130072446_create_project_slides_table.sql` - Creates project slides table
-
-Apply migrations through Supabase Dashboard or CLI.
-
-5. **Configure Web3Forms**
+3. **Configure Web3Forms (Optional)**
 
 The contact form is configured with Web3Forms. The access key is already set in the Contact component. To use your own:
 - Sign up at [Web3Forms](https://web3forms.com)
 - Replace the access key in `/src/components/sections/Contact.tsx`
 
-6. **Start development server**
+4. **Start development server**
 ```bash
 npm run dev
 ```
 
 Visit `http://localhost:5173` to view the site.
 
-## Environment Variables
+## Data Management
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `VITE_SUPABASE_URL` | Your Supabase project URL | Yes |
-| `VITE_SUPABASE_ANON_KEY` | Your Supabase anonymous key | Yes |
+All content is managed through static JSON files in the `src/data/` directory:
+- `projects.ts` - Portfolio projects
+- `experience.ts` - Work experience
+- `blog-posts.ts` - Blog content
+- `linkedin-posts.ts` - LinkedIn posts
+- `skills.ts` - Technical skills
 
-## Database Schema
-
-### Tables
-
-**portfolio_projects**
-- `id`: UUID primary key
-- `title`: Project name
-- `description`: Project overview
-- `long_description`: Detailed description
-- `image_url`: Main project image
-- `technologies`: Array of tech stack
-- `category`: Project category
-- `featured`: Boolean flag
-- `demo_url`, `github_url`, `case_study_url`: Project links
-- `created_at`: Timestamp
-
-**project_slides**
-- `id`: UUID primary key
-- `project_id`: Foreign key to portfolio_projects
-- `title`: Slide title
-- `description`: Slide content
-- `image_url`: Slide image
-- `order_index`: Display order
-- `created_at`: Timestamp
-
-**blog_posts**
-- `id`: UUID primary key
-- `title`: Post title
-- `excerpt`: Short description
-- `content`: Full content
-- `cover_image_url`: Featured image
-- `category`, `tags`: Organization
-- `published_at`, `created_at`: Timestamps
-
-**linkedin_posts**
-- `id`: UUID primary key
-- `content`: Post text
-- `likes`, `comments`, `shares`: Engagement metrics
-- `post_url`: LinkedIn link
-- `created_at`, `published_at`: Timestamps
-
-**experience**
-- `id`: UUID primary key
-- `company`, `position`: Job details
-- `location`: Work location
-- `description`: Role description
-- `technologies`: Array of tech used
-- `start_date`, `end_date`: Employment period
-- `order_index`: Display order
+Project slides are stored in `public/project_slides.json` for optimal loading performance.
 
 ## Project Structure
 
@@ -182,8 +117,6 @@ project/
 │   ├── App.tsx              # Main app component
 │   ├── main.tsx             # App entry point
 │   └── index.css            # Global styles
-├── supabase/
-│   └── migrations/          # Database migrations
 ├── Scripts/                 # Build scripts
 └── [config files]           # Various config files
 ```
@@ -208,19 +141,17 @@ npm run typecheck       # TypeScript type checking
 ### Adding New Projects
 
 1. **Add images** to `public/images/`
-2. **Update data** in `src/data/projects.ts` or add to Supabase
+2. **Update data** in `src/data/projects.ts`
 3. **Create slides** (optional) in `public/project_slides.json`
 
 ### Modifying Content
 
-**Static Content**: Edit files in `src/data/`
+Edit files in `src/data/`:
 - `blog-posts.ts` - Blog articles
 - `experience.ts` - Work history
 - `linkedin-posts.ts` - LinkedIn content
 - `projects.ts` - Portfolio projects
 - `skills.ts` - Technical skills
-
-**Dynamic Content**: Update Supabase database tables
 
 ### Styling
 
@@ -264,9 +195,8 @@ Upload the `dist/` folder to any static hosting service.
 
 ### Environment Variables
 
-Remember to set environment variables on your hosting platform:
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_ANON_KEY`
+No environment variables are required for basic deployment. Optionally set:
+- `VITE_WEB3FORMS_KEY` - If using a custom Web3Forms account
 
 ## Performance Optimizations
 
@@ -288,8 +218,7 @@ Remember to set environment variables on your hosting platform:
 
 - **Environment Variables**: Never commit `.env` files
 - **API Keys**: Use environment variables only
-- **Database**: Row Level Security enabled on all tables
-- **Form Validation**: Client and server-side validation
+- **Form Validation**: Client-side validation for contact forms
 - **HTTPS**: Always use HTTPS in production
 
 ## Contributing
@@ -315,9 +244,8 @@ For inquiries, use the contact form on the website or email directly at sr_abbas
 - Design inspiration from modern portfolio trends
 - Icons provided by [Lucide](https://lucide.dev)
 - Form handling by [Web3Forms](https://web3forms.com)
-- Database and backend by [Supabase](https://supabase.com)
 - Stock photos from [Pexels](https://pexels.com)
 
 ---
 
-**Built with ❤️ using React, TypeScript, and Supabase**
+**Built with ❤️ using React and TypeScript**

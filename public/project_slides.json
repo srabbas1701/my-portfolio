@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "slide_number": 1,
+    "title": "EaseHealth AI Landing Page",
+    "description": "Modern landing page showcasing AI-powered healthcare management",
+    "image_url": "/images/easehealth/01_easehealthAILandingpage_1280.webp"
+  },
+  {
+    "id": "2",
+    "slide_number": 2,
+    "title": "Patient Dashboard",
+    "description": "Comprehensive patient view with appointments and medical records",
+    "image_url": "/images/easehealth/02_patient_dashboard_1280.webp"
+  },
+  {
+    "id": "3",
+    "slide_number": 3,
+    "title": "Doctor Dashboard",
+    "description": "Physician interface for managing patients and appointments",
+    "image_url": "/images/easehealth/03_doctor_dashboard_1280.webp"
+  },
+  {
+    "id": "4",
+    "slide_number": 4,
+    "title": "Schedule Management",
+    "description": "Doctor availability and appointment scheduling system",
+    "image_url": "/images/easehealth/04_doctor_schedulemanagement.webp"
+  },
+  {
+    "id": "5",
+    "slide_number": 5,
+    "title": "AI-Powered Summaries",
+    "description": "Intelligent medical document summarization using AI",
+    "image_url": "/images/easehealth/05_ai_summary_1280.webp"
+  },
+  {
+    "id": "6",
+    "slide_number": 6,
+    "title": "OCR & AI Chat",
+    "description": "Extract text from medical documents and interact with AI assistant",
+    "image_url": "/images/easehealth/06_ocr_extract_aichat_1280.webp"
+  },
+  {
+    "id": "7",
+    "slide_number": 7,
+    "title": "Patient Booking",
+    "description": "Easy appointment booking interface for patients",
+    "image_url": "/images/easehealth/07_patientbooking_1280.webp"
+  },
+  {
+    "id": "8",
+    "slide_number": 8,
+    "title": "Booking Details",
+    "description": "Detailed appointment information and management",
+    "image_url": "/images/easehealth/08_bookingdetails_1280.webp"
+  },
+  {
+    "id": "9",
+    "slide_number": 9,
+    "title": "Notifications System",
+    "description": "Real-time notifications for appointments and updates",
+    "image_url": "/images/easehealth/09_notifications_1280.webp"
+  }
+]
