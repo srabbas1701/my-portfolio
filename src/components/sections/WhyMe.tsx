@@ -1,28 +1,28 @@
-import { Award, Zap, UserCheck, TrendingUp, Calendar } from 'lucide-react';
+import { Target, Zap, Shield, Briefcase, Calendar } from 'lucide-react';
 import Section from '../layout/Section';
 import Button from '../ui/Button';
 import { useInView } from '../../hooks/useInView';
 
 const highlights = [
   {
-    icon: Award,
-    title: 'No Rookie Mistakes',
-    description: '10+ years leading teams means I know what works—you get senior-level execution',
+    icon: Target,
+    title: 'Enterprise Caliber, Startup Agility',
+    description: 'You get Fortune 500-level architecture and program management—without the enterprise price tag, timeline, or bureaucracy.',
   },
   {
     icon: Zap,
-    title: 'Fast Turnaround',
-    description: 'Solo operation means no overhead—your project gets my full focus',
+    title: 'No Rookie Mistakes',
+    description: '15+ years leading complex programs means I know what works, what doesn\'t, and how to deliver on time without technical debt.',
   },
   {
-    icon: UserCheck,
-    title: 'Enterprise Quality',
-    description: 'Team-leading experience means better solo work for you',
+    icon: Shield,
+    title: 'Production-Ready from Day One',
+    description: 'I don\'t build prototypes that need rewrites. I build systems that scale, with proper security, testing, and documentation built in.',
   },
   {
-    icon: TrendingUp,
-    title: 'Production-Ready Code',
-    description: 'Built to scale from day one—no technical debt',
+    icon: Briefcase,
+    title: 'Business Outcomes, Not Just Code',
+    description: 'My program management background means I understand ROI, stakeholder alignment, and delivery risk—I speak both technical and business language fluently.',
   },
 ];
 
@@ -71,7 +71,7 @@ export default function WhyMe() {
             icon={Calendar}
             onClick={() => window.open('https://calendly.com/srabbas1701/free-15-min-website-audit', '_blank')}
           >
-            Hire Me for Your Project
+            Schedule Strategy Call
           </Button>
         </div>
       </div>
