@@ -178,6 +178,18 @@ export default function FeaturedProject() {
                   ))}
                 </div>
               </div>
+
+              {slides.length > 0 && slides[currentSlide] && (
+                <div className="mt-6 px-4 pb-4">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {slides[currentSlide].title}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {slides[currentSlide].description}
+                  </p>
+                </div>
+              )}
+
               <Badge className="absolute -top-4 -right-4 animate-bounce bg-primary text-white px-4 py-2">
                 MVP Live
               </Badge>
