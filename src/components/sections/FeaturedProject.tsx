@@ -133,9 +133,9 @@ export default function FeaturedProject() {
   return (
     <Section id="easehealthai" className="bg-gradient-to-br from-secondary/5 via-primary/5 to-accent/5">
       <div ref={ref} className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="grid lg:grid-cols-[58%_42%] gap-12 items-center">
-          <div className="relative order-2 lg:order-1">
-            <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <div className="grid lg:grid-cols-[58%_42%] gap-12 items-start">
+          <div className="flex flex-col order-2 lg:order-1">
+            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
               <div className="relative">
                 <div
                   ref={scrollRef}
@@ -212,10 +212,22 @@ export default function FeaturedProject() {
                   ))}
                 </div>
               </div>
+              <Badge className="absolute -top-4 -right-4 animate-bounce bg-primary text-white px-4 py-2">
+                MVP Live
+              </Badge>
             </div>
-            <Badge className="absolute -top-4 -right-4 animate-bounce bg-primary text-white px-4 py-2">
-              MVP Live
-            </Badge>
+
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Button variant="primary" icon={ExternalLink}>
+                View Live Demo
+              </Button>
+              <Button variant="secondary" icon={PlayCircle}>
+                Watch Video
+              </Button>
+              <Button variant="ghost" icon={Github} onClick={() => window.open('https://github.com/srabbas1701/EaseHealth-AI', '_blank')}>
+                View Code
+              </Button>
+            </div>
           </div>
 
           <div className="order-1 lg:order-2 overflow-y-auto max-h-[800px] pr-4">
@@ -374,17 +386,6 @@ export default function FeaturedProject() {
               </ul>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-8">
-              <Button variant="primary" icon={ExternalLink}>
-                View Live Demo
-              </Button>
-              <Button variant="secondary" icon={PlayCircle}>
-                Watch Video
-              </Button>
-              <Button variant="ghost" icon={Github} onClick={() => window.open('https://github.com/srabbas1701/EaseHealth-AI', '_blank')}>
-                View Code
-              </Button>
-            </div>
           </div>
         </div>
       </div>
