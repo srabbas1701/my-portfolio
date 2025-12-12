@@ -237,7 +237,7 @@ This project is private and proprietary. All rights reserved.
 
 ## Contact
 
-For inquiries, use the contact form on the website or email directly at sr_abbas@yahoo.com.
+For inquiries, use the contact form on the website or email directly at raza@razaabbas.dev.
 
 ## Acknowledgments
 

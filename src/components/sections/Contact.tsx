@@ -193,8 +193,8 @@ export default function Contact() {
                     <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                       <p className="text-sm text-red-700 dark:text-red-400 text-center font-medium">
                         Oops! Something went wrong. Please email me directly at{' '}
-                        <a href="mailto:sr_abbas@yahoo.com" className="underline hover:no-underline">
-                          sr_abbas@yahoo.com
+                        <a href="mailto:raza@razaabbas.dev" className="underline hover:no-underline">
+                          raza@razaabbas.dev
                         </a>
                       </p>
                     </div>
@@ -205,10 +205,10 @@ export default function Contact() {
               <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
                 <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
                   Not ready to fill out a form?{' '}
-                  <a href="mailto:sr_abbas@yahoo.com" className="text-primary hover:underline font-medium">
+                  <a href="mailto:raza@razaabbas.dev" className="text-primary hover:underline font-medium">
                     Email me directly
                   </a>{' '}
-                  at sr_abbas@yahoo.com or schedule a quick call.
+                  at raza@razaabbas.dev or schedule a quick call.
                 </p>
               </div>
             </Card>
@@ -248,10 +248,10 @@ export default function Contact() {
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Prefer Email?</h4>
                   </div>
                   <a
-                    href="mailto:sr_abbas@yahoo.com"
+                    href="mailto:raza@razaabbas.dev"
                     className="text-primary hover:underline font-medium block ml-13"
                   >
-                    sr_abbas@yahoo.com
+                    raza@razaabbas.dev
                   </a>
                 </div>
 
