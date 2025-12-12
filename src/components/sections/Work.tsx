@@ -31,7 +31,7 @@ const showcaseProjects: ShowcaseProject[] = [
     description: 'AI-powered healthcare management platform designed for Indian healthcare workflows. Features OCR for medical documents, AI-generated summaries, multilingual support, and comprehensive appointment management.',
     image: '/images/image copy copy.png',
     technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'n8n', 'Tailwind CSS'],
-    liveLink: 'https://easehealthai.netlify.app',
+    liveLink: 'https://www.easehealthai.com',
     videoDemo: '/media/easehealth-demo.mp4',
     highlight: 'AI auto-fills forms, checks eligibility—cut time 40%',
     status: 'Live MVP',

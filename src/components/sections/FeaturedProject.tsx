@@ -196,7 +196,12 @@ export default function FeaturedProject() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4 justify-center">
-              <Button variant="primary" icon={ExternalLink} className="flex-1 min-w-[200px]">
+              <Button
+                variant="primary"
+                icon={ExternalLink}
+                className="flex-1 min-w-[200px]"
+                onClick={() => window.open('https://www.easehealthai.com', '_blank')}
+              >
                 View Live Demo
               </Button>
               <Button variant="secondary" icon={PlayCircle} className="flex-1 min-w-[200px]">
