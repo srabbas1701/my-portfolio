@@ -12,7 +12,7 @@ const highlights = [
   {
     icon: Zap,
     title: 'No Rookie Mistakes',
-    description: '15+ years leading complex programs means I know what works, what doesn\'t, and how to deliver on time without technical debt.',
+    description: '25+ years leading complex programs means I know what works, what doesn\'t, and how to deliver on time without technical debt.',
   },
   {
     icon: Shield,

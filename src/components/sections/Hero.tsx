@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="grid lg:grid-cols-[60%_40%] gap-12 items-center">
         <div className="space-y-6">
           <span className="text-primary uppercase tracking-wider text-sm font-medium animate-fade-in">
-            AI Solutions Architect | 15+ Years Enterprise Leadership
+            AI Solutions Architect | 25+ Years Enterprise Leadership
           </span>
 
           <h1 className="text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style={{ animationDelay: '100ms' }}>
@@ -34,7 +34,7 @@ export default function Hero() {
 
           <div className="space-y-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <p className="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I'm Raza—former Director of Engineering with 15+ years leading enterprise technology programs. Now I build production-ready AI platforms—from LLM-powered applications and RAG systems to intelligent agents—for healthcare providers and fintech companies.
+              I'm Raza—former Director of Engineering with 25+ years leading enterprise technology programs. Now I build production-ready AI platforms—from LLM-powered applications and RAG systems to intelligent agents—for healthcare providers and fintech companies.
             </p>
 
             <p className="text-base lg:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -66,7 +66,7 @@ export default function Hero() {
                 🎯 FOUNDING CLIENT OPPORTUNITY
               </p>
               <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                I'm offering 15% founding client rates for my first 3 freelance projects. You get senior enterprise architecture and 15+ years of program management expertise at a reduced investment.
+                I'm offering 15% founding client rates for my first 3 freelance projects. You get senior enterprise architecture and 25+ years of program management expertise at a reduced investment.
               </p>
               <p className="text-sm text-gray-900 dark:text-gray-100 font-semibold">
                 Standard projects: $15K-$50K | Founding rate: $12K-$42K

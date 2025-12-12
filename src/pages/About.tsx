@@ -36,7 +36,7 @@ export default function About() {
   ];
 
   const experienceHighlights = [
-    '15+ years in IT leadership roles (Program Manager, Portfolio Manager, Delivery Manager)',
+    '25+ years in IT leadership roles (Program Manager, Portfolio Manager, Delivery Manager)',
     'Led technology portfolios worth $50M+ at Fortune 500 companies',
     'Managed cross-functional teams of 300-500+ engineers across multiple geographies',
     'Delivered enterprise-scale systems for healthcare, insurance, and technology sectors',
@@ -89,7 +89,7 @@ export default function About() {
     {
       icon: Zap,
       title: 'No Rookie Mistakes',
-      description: '15+ years leading complex programs means I know what works, what doesn\'t, and how to deliver on time without technical debt.',
+      description: '25+ years leading complex programs means I know what works, what doesn\'t, and how to deliver on time without technical debt.',
       detailsTitle: 'Why this matters:',
       details: [
         'I\'ve seen every common architectural mistake—and know how to avoid them before they become costly problems',
@@ -166,7 +166,7 @@ export default function About() {
               </div>
               <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 <p>
-                  I spent <span className="text-primary font-semibold">15+ years</span> as a Director of Engineering and Program Manager at companies including <span className="font-semibold">Optum/UnitedHealth Group, HCL Technologies, CSC, and NIIT Technologies</span>—leading cross-functional teams of 300-500 engineers and managing technology portfolios worth $50 million and above.
+                  I spent <span className="text-primary font-semibold">25+ years</span> as a Director of Engineering and Program Manager at companies including <span className="font-semibold">Optum/UnitedHealth Group, HCL Technologies, CSC, and NIIT Technologies</span>—leading cross-functional teams of 300-500 engineers and managing technology portfolios worth $50 million and above.
                 </p>
                 <p>
                   I delivered enterprise-scale digital transformation programs, architected complex distributed systems, and led delivery organizations across multiple geographies. I was responsible for everything from technical architecture reviews to stakeholder management to program governance.
@@ -201,7 +201,7 @@ export default function About() {
               </div>
               <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 <p className="font-semibold text-gray-900 dark:text-white">
-                  My 15+ years of enterprise experience means I understand what most freelance developers don't:
+                  My 25+ years of enterprise experience means I understand what most freelance developers don't:
                 </p>
                 <ul className="space-y-3 ml-6">
                   <li className="flex items-start gap-3">
