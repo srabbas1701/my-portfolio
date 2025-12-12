@@ -29,7 +29,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            Enterprise-caliber AI architecture at India-based rates
+            Enterprise-caliber AI solutions at highly competitive rates
           </p>
 
           <div className="space-y-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
