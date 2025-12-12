@@ -6,7 +6,6 @@ import {
   Code,
   Award,
   Calendar,
-  FileText,
   ExternalLink,
   Shield,
   Zap,
@@ -447,14 +446,6 @@ export default function About() {
                   onClick={() => window.location.href = '/#work'}
                 >
                   View My Work
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  icon={FileText}
-                  onClick={() => window.open('/resume.pdf', '_blank')}
-                >
-                  Download Resume
                 </Button>
               </div>
             </section>
