@@ -1,4 +1,4 @@
-import { Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Linkedin, Github, Mail, ArrowUp } from 'lucide-react';
 import Logo from '../ui/Logo';
 import Container from './Container';
 import Button from '../ui/Button';
@@ -28,6 +28,15 @@ export default function Footer() {
               className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
             >
               <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="https://github.com/srabbas1701"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+            >
+              <Github className="w-5 h-5" />
             </a>
             <a
               href="mailto:raza@razaabbas.dev"

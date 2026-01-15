@@ -23,6 +23,7 @@ export const skills = {
     "AWS/Azure",
     "Docker/K8s",
     "CI/CD",
+    "GitHub",
     "CoPilot",
     "Product Design & Management"
   ],
