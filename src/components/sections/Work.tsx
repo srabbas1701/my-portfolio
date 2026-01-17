@@ -83,7 +83,8 @@ const showcaseProjects: ShowcaseProject[] = [
     },
     image: '/images/lens-on-wealth/image.png',
     technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Financial Analytics'],
-    liveLink: '#',
+    liveLink: 'https://www.lensonwealth.com/',
+    videoDemo: '/media/lensonwealth-demo.mp4',
     highlight: 'Unified wealth tracking & AI-powered investment analytics',
     status: 'Active MVP',
   },
@@ -109,7 +110,7 @@ export default function Work() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="max-w-full max-h-full object-contain"
+                      className={`${project.title === 'LensOnWealth' ? 'w-full h-full object-cover' : 'max-w-full max-h-full object-contain'}`}
                     />
                     {project.status && (
                       <div className="absolute top-4 right-4">
