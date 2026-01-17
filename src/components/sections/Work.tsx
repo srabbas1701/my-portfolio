@@ -110,7 +110,7 @@ export default function Work() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className={`${project.title === 'LensOnWealth' ? 'w-full h-full object-cover' : 'max-w-full max-h-full object-contain'}`}
+                      className="w-full h-full object-contain"
                     />
                     {project.status && (
                       <div className="absolute top-4 right-4">
