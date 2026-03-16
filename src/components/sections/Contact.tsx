@@ -138,7 +138,6 @@ export default function Contact() {
                     name="budget"
                     helperText="This helps me understand if we're a good fit"
                     options={budgetOptions}
-                    required
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                   />
@@ -158,7 +157,6 @@ export default function Contact() {
                     name="timeline"
                     helperText="Approximate timeline for project start"
                     options={timelineOptions}
-                    required
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                   />

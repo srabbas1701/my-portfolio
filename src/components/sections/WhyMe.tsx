@@ -33,6 +33,11 @@ export default function WhyMe() {
     <Section className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div ref={ref} className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12">
+          <span className="inline-flex items-center gap-2 text-primary uppercase tracking-wider text-sm font-semibold mb-4">
+            <span className="w-6 h-px bg-primary" />
+            The Difference
+            <span className="w-6 h-px bg-primary" />
+          </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100">
             Why Work With Me?
           </h2>
@@ -45,7 +50,7 @@ export default function WhyMe() {
           {highlights.map((item, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-gray-200 dark:border-gray-700 hover:border-primary/30"
               style={{
                 animation: isInView ? `fade-in-up 0.6s ease-out ${index * 100}ms forwards` : 'none',
                 opacity: isInView ? 1 : 0,

@@ -1,4 +1,4 @@
-import { Globe, Brain, Shield, Accessibility, Database, ExternalLink, Calendar, PlayCircle, FileText, Target, Code2, Server, Sparkles, Layers } from 'lucide-react';
+import { ExternalLink, PlayCircle, Target, Code2, Server, Sparkles, Layers, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import Section from '../layout/Section';
 import Button from '../ui/Button';
@@ -13,24 +13,13 @@ interface ProjectSlide {
   image_url: string;
 }
 
-function FeatureItem({ icon: Icon, text }: { icon: any; text: string }) {
-  return (
-    <div className="flex items-start gap-3">
-      <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-        <Icon className="w-5 h-5 text-primary" />
-      </div>
-      <p className="text-gray-700 dark:text-gray-300 pt-2">{text}</p>
-    </div>
-  );
-}
-
 export default function FeaturedProject() {
   const { ref, isInView } = useInView();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState<ProjectSlide[]>([]);
   const [loading, setLoading] = useState(true);
-  const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+  const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     fetchSlides();
@@ -99,36 +88,11 @@ export default function FeaturedProject() {
     }
   };
 
-  const goToSlide = (index: number) => {
-    if (autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-    }
-
-    if (scrollRef.current) {
-      const slideWidth = scrollRef.current.offsetWidth;
-      scrollRef.current.scrollTo({ left: slideWidth * index, behavior: 'smooth' });
-      setCurrentSlide(index);
-    }
-
-    if (slides.length > 0) {
-      autoScrollRef.current = setInterval(() => {
-        setCurrentSlide((prev) => {
-          const nextSlide = (prev + 1) % slides.length;
-          if (scrollRef.current) {
-            const slideWidth = scrollRef.current.offsetWidth;
-            scrollRef.current.scrollTo({ left: slideWidth * nextSlide, behavior: 'smooth' });
-          }
-          return nextSlide;
-        });
-      }, 10000);
-    }
-  };
-
   return (
     <Section id="easehealthai" className="bg-gradient-to-br from-secondary/5 via-primary/5 to-accent/5">
       <div ref={ref} className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="flex flex-col order-2 lg:order-1 overflow-y-auto max-h-[800px] pr-2">
+          <div className="flex flex-col order-2 lg:order-1 lg:overflow-y-auto lg:max-h-[800px] lg:pr-2">
             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
               <div className="relative">
                 <div
@@ -163,21 +127,35 @@ export default function FeaturedProject() {
                   )}
                 </div>
 
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
-                  {slides.map((_, index) => (
+                {slides.length > 0 && (
+                  <>
                     <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className={`rounded-full transition-all ${
-                        currentSlide === index
-                          ? 'bg-white w-10 h-3'
-                          : 'bg-white/50 w-3 h-3 hover:bg-white/70'
-                      }`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
+                      type="button"
+                      onClick={() => scroll('left')}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-primary/50 hover:bg-primary/70 text-white shadow-md border-2 border-white/50 dark:border-gray-700"
+                      aria-label="Previous slide"
+                    >
+                      <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => scroll('right')}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-primary/50 hover:bg-primary/70 text-white shadow-md border-2 border-white/50 dark:border-gray-700"
+                      aria-label="Next slide"
+                    >
+                      <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
+                    </button>
+                  </>
+                )}
               </div>
+
+              {slides.length > 0 && (
+                <div className="flex items-center justify-center gap-2 py-3 border-t border-gray-200 dark:border-gray-700">
+                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                    {currentSlide + 1} of {slides.length}
+                  </span>
+                </div>
+              )}
 
               {slides.length > 0 && slides[currentSlide] && (
                 <div className="mt-6 px-4 pb-4">
@@ -191,7 +169,7 @@ export default function FeaturedProject() {
               )}
 
               <Badge className="absolute -top-4 -right-4 animate-bounce bg-primary text-white px-4 py-2">
-                MVP Live
+                LIVE
               </Badge>
             </div>
 
@@ -276,7 +254,7 @@ export default function FeaturedProject() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 flex flex-col max-h-[800px]">
+          <div className="order-1 lg:order-2 flex flex-col lg:max-h-[800px]">
             <div className="flex-shrink-0">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Featured Project</span>
               <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-gray-900 dark:text-gray-100">EaseHealthAI</h2>
@@ -285,7 +263,7 @@ export default function FeaturedProject() {
               </p>
             </div>
 
-            <div className="flex-1 overflow-y-auto mt-6 pr-2">
+            <div className="flex-1 lg:overflow-y-auto mt-6 lg:pr-2">
             <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               Built for Indian clinics struggling with manual OPD workflows, paper-based records, and time-consuming medical documentation. EaseHealthAI transforms chaotic clinic operations into streamlined digital workflows through intelligent automation, AI-powered clinical assistance, and enterprise-grade security compliance.
             </p>

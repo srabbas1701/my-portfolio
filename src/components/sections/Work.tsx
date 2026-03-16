@@ -1,4 +1,5 @@
-import { ExternalLink, Play } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { ExternalLink, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import Section from '../layout/Section';
 import SectionHeader from '../common/SectionHeader';
 import Badge from '../ui/Badge';
@@ -18,9 +19,11 @@ interface ShowcaseProject {
     status: string;
   };
   image: string;
+  carouselImages?: string[];
   technologies: string[];
   liveLink: string;
   videoDemo?: string;
+  demoLink?: string;
   highlight?: string;
   status?: string;
 }
@@ -35,6 +38,42 @@ const showcaseProjects: ShowcaseProject[] = [
     videoDemo: '/media/easehealth-demo.mp4',
     highlight: 'AI auto-fills forms, checks eligibility—cut time 40%',
     status: 'Live MVP',
+  },
+  {
+    title: 'LensOnWealth',
+    subtitle: 'Investment Portfolio Intelligence Platform',
+    description: 'Built for Indian retail investors struggling with fragmented broker statements, manual portfolio tracking, and lack of consolidated insights. LensOnWealth transforms scattered financial data across multiple brokers and asset classes into a single intelligent portfolio dashboard, enabling investors to track performance, understand allocation, and make informed investment decisions. The platform combines automated broker statement ingestion, portfolio analytics, and AI-powered insights to deliver institutional-grade portfolio intelligence to retail investors.',
+    keyOutcomes: [
+      'Unified portfolio view across multiple brokers and asset classes',
+      'Automated broker statement ingestion (PDF / Excel) with zero manual entry',
+      'Accurate cost-basis, realized and unrealized P&L calculations',
+      'Real-time portfolio allocation and performance analytics',
+      'Intelligent classification of stocks, ETFs, and mutual funds from mixed broker statements',
+      'Historical portfolio performance tracking and net-worth trends',
+      'Scalable architecture supporting thousands of securities per user',
+      'Secure privacy-first architecture with user-isolated financial data',
+    ],
+    technicalDetails: 'Architected as a modern full-stack platform with React + TypeScript frontend and Supabase-based backend infrastructure. Key technical components include: automated broker statement parsing (PDF & Excel ingestion), financial instrument classification and normalization engine, portfolio analytics engine for performance and allocation insights, scalable database design optimized for large transaction histories, and secure multi-user architecture with strict financial data isolation.',
+    challenge: 'Indian broker statements vary significantly in format and structure. The platform implements custom ingestion pipelines and parsing logic to reliably extract holdings, transactions, and pricing data from heterogeneous broker documents.',
+    scope: {
+      duration: '3–4 months (MVP to production)',
+      team: 'Product architect and full-stack developer',
+      status: 'Active MVP with live user testing',
+    },
+    image: '/images/lens-on-wealth/image.png',
+    carouselImages: [
+      '/images/lens-on-wealth/image.png',
+      '/images/lens-on-wealth/image1.png',
+      '/images/lens-on-wealth/image2.png',
+      '/images/lens-on-wealth/image3.png',
+      '/images/lens-on-wealth/image4.png',
+      '/images/lens-on-wealth/image5.png',
+    ],
+    technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Financial Analytics'],
+    liveLink: 'https://www.lensonwealth.com/',
+    demoLink: 'https://www.lensonwealth.com/demo',
+    highlight: 'Unified wealth tracking with AI-powered portfolio intelligence',
+    status: 'LIVE',
   },
   {
     title: 'Discovery Bionics',
@@ -60,35 +99,65 @@ const showcaseProjects: ShowcaseProject[] = [
     highlight: '45% increase in product inquiry conversion',
     status: 'Live',
   },
-  {
-    title: 'LensOnWealth',
-    subtitle: 'Investment Portfolio Intelligence Platform',
-    description: 'Built for Indian retail investors struggling with fragmented broker statements, manual portfolio tracking, and lack of actionable insights. The Investment Portfolio platform transforms scattered financial data into a single source of truth, delivering real-time portfolio intelligence, performance analytics, and decision-grade insights through automation and AI-driven analysis.',
-    keyOutcomes: [
-      'Unified portfolio view across multiple brokers and asset classes',
-      'Automated broker statement ingestion (PDF/Excel) with zero manual entry',
-      'Accurate cost-basis, realized & unrealized P&L calculation',
-      'Real-time portfolio performance and allocation insights',
-      'Intelligent separation of Stocks vs ETFs from mixed broker statements',
-      'Clean net-worth tracking with historical performance trends',
-      'Scalable architecture supporting thousands of securities per user',
-      'Secure, privacy-first design with user-isolated financial data',
-    ],
-    technicalDetails: 'Built using a modern full-stack architecture with React + TypeScript on the frontend and Supabase (PostgreSQL) on the backend. Designed a normalized financial data schema capable of handling complex broker variations while maintaining performance and accuracy. Implemented a statement processing pipeline that ingests raw broker documents, extracts structured transaction data, and maps it into a unified portfolio model. Special care was taken to handle real-world broker inconsistencies—mixed asset classes, varying column formats, missing metadata, and non-standard naming conventions. Architected the system with a clear separation between ingestion, normalization, analytics, and presentation layers—allowing independent evolution of each module.',
-    challenge: 'Indian investors typically hold assets across multiple brokers, asset classes (stocks, ETFs, mutual funds), and formats—PDF statements, Excel files, emails, and screenshots. There is no standardized view of net worth, returns, or risk exposure. Manual tracking leads to errors, outdated insights, missed rebalancing opportunities, and poor investment decisions. Most tools either focus on a single asset class or require tedious manual data entry, making them unsuitable for serious long-term investors.',
-    scope: {
-      duration: '6–8 weeks',
-      team: 'Solo product architect, full-stack developer, and system designer',
-      status: 'Active MVP with real user portfolios and live data ingestion',
-    },
-    image: '/images/lens-on-wealth/image.png',
-    technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Financial Analytics'],
-    liveLink: 'https://www.lensonwealth.com/',
-    videoDemo: '/media/lensonwealth-demo.mp4',
-    highlight: 'Unified wealth tracking & AI-powered investment analytics',
-    status: 'Active MVP',
-  },
 ];
+
+function ProjectImageCarousel({ images }: { images: string[] }) {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      el.scrollTo({ left: el.offsetWidth * slideIndex, behavior: 'smooth' });
+    }
+  }, [slideIndex]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideIndex((prev) => (prev >= images.length - 1 ? 0 : prev + 1));
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-full h-full min-h-[300px]">
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide w-full h-full"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {images.map((src, idx) => (
+          <div key={idx} className="flex-shrink-0 w-full snap-center flex items-center justify-center p-2">
+            <img
+              src={src}
+              alt={`Screenshot ${idx + 1}`}
+              className="max-w-full max-h-[360px] object-contain"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = images[0];
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      <button
+        type="button"
+        onClick={() => setSlideIndex((i) => (i > 0 ? i - 1 : images.length - 1))}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-primary/50 hover:bg-primary/70 text-white shadow-md border-2 border-white/50 dark:border-gray-700"
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
+      </button>
+      <button
+        type="button"
+        onClick={() => setSlideIndex((i) => (i < images.length - 1 ? i + 1 : 0))}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-primary/50 hover:bg-primary/70 text-white shadow-md border-2 border-white/50 dark:border-gray-700"
+        aria-label="Next image"
+      >
+        <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
+      </button>
+    </div>
+  );
+}
 
 export default function Work() {
   const { ref, isInView } = useInView();
@@ -107,13 +176,17 @@ export default function Work() {
               <div className="grid md:grid-cols-[40%_60%] gap-0">
                 <div className="flex flex-col bg-gray-100 dark:bg-gray-900">
                   <div className="relative flex items-center justify-center p-4 min-h-[300px] md:min-h-[400px] flex-1">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-contain"
-                    />
+                    {project.carouselImages ? (
+                      <ProjectImageCarousel images={project.carouselImages} />
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-contain"
+                      />
+                    )}
                     {project.status && (
-                      <div className="absolute top-4 right-4">
+                      <div className="absolute top-4 right-4 z-10">
                         <Badge className="bg-primary text-white px-3 py-1">
                           {project.status}
                         </Badge>
@@ -129,10 +202,19 @@ export default function Work() {
                           icon={ExternalLink}
                           onClick={() => window.open(project.liveLink, '_blank')}
                         >
-                          View Live Demo
+                          {project.demoLink ? 'View Live Website' : 'View Live Demo'}
                         </Button>
                       )}
-                      {project.videoDemo && (
+                      {project.demoLink && (
+                        <Button
+                          variant="secondary"
+                          icon={ExternalLink}
+                          onClick={() => window.open(project.demoLink!, '_blank')}
+                        >
+                          Live Demo
+                        </Button>
+                      )}
+                      {project.videoDemo && !project.demoLink && (
                         <Button variant="secondary" icon={Play}>
                           Watch Video
                         </Button>
@@ -141,7 +223,7 @@ export default function Work() {
                   </div>
                 </div>
 
-                <div className="p-6 md:p-8 flex flex-col max-h-[500px] md:max-h-[700px]">
+                <div className="p-6 md:p-8 flex flex-col md:max-h-[700px]">
                   <div className="flex-shrink-0">
                     <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                       {project.title}
@@ -153,7 +235,7 @@ export default function Work() {
                     )}
                   </div>
 
-                  <div className="flex-1 overflow-y-auto pr-2">
+                  <div className="flex-1 md:overflow-y-auto md:pr-2">
                   <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
                     {project.description}
                   </p>
