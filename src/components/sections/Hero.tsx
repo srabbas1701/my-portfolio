@@ -5,7 +5,7 @@ import Section from '../layout/Section';
 
 const stats = [
   { value: '25+', label: 'Years Enterprise Experience' },
-  { value: '3', label: 'Live AI Products' },
+  { value: '4', label: 'Live AI Products' },
   { value: '500+', label: 'Users Served' },
   { value: '$150K+', label: 'In Project Value Delivered' },
 ];
@@ -28,6 +28,12 @@ const apps = [
     url: 'discoverybionics.com',
     image: '/images/discovery-bionics.jpg',
     label: 'Biotech Corporate Platform',
+  },
+  {
+    name: 'Model Council',
+    url: 'modelcouncil.com',
+    image: '/images/model-council.png',
+    label: 'Multi-Agent AI Debate Platform',
   },
 ];
 

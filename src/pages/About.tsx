@@ -46,6 +46,7 @@ export default function About() {
     '2023-2025: Completed AI Generalist Fellowship at Outskill',
     '2025: Built EaseHealthAI - first solo AI product from concept to production',
     '2025: Launched independent AI consulting practice',
+    '2026: Built LensOnWealth (fintech), Discovery Bionics (biotech), and Model Council (AI debate platform)',
   ];
 
   const education = [
@@ -56,8 +57,8 @@ export default function About() {
 
   const technicalSkills = {
     'AI & LLM': [
-      'GPT-4', 'Claude 3.7 Sonnet', 'Gemini', 'LangChain', 'LlamaIndex',
-      'CrewAI', 'Pinecone', 'Weaviate', 'ChromaDB'
+      'GPT-4', 'Claude 3.7 Sonnet', 'Claude Code', 'Gemini', 'LangChain', 'LlamaIndex',
+      'CrewAI', 'Pinecone', 'Weaviate', 'ChromaDB', 'Antigravity', 'OpenClaw'
     ],
     'Full-Stack Development': [
       'React', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI',

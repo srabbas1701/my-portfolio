@@ -99,6 +99,31 @@ const showcaseProjects: ShowcaseProject[] = [
     highlight: '45% increase in product inquiry conversion',
     status: 'Live',
   },
+  {
+    title: 'Model Council',
+    subtitle: 'Multi-Agent AI Debate & Consensus Platform',
+    description: 'Ask once. Let the council decide. A next-generation AI consensus platform where four specialized AI models (Devil\'s Advocate, Optimist, Analyst, Creative) debate your question across multiple rounds via OpenRouter, converge on a final verdict, and expose an agreement/disagreement matrix showing exactly where models aligned or diverged. Built for decision-makers who need AI perspective that\'s transparent, multi-faceted, and shows the reasoning behind consensus.',
+    keyOutcomes: [
+      'Multi-round debate orchestration with 4 specialized AI roles (Claude Sonnet, GPT-5, Gemini 2.5, Grok 4)',
+      'Real-time SSE streaming with live debate transcript and progressive consensus synthesis',
+      'Transparent cost tracking: ~$0.08-0.12 per query depending on debate rounds',
+      'Agreement/disagreement matrix showing model alignment patterns and reasoning divergence',
+      'Markdown export of full debate transcripts for documentation and decision records',
+      'Glassmorphic UI with role-based model cards and consensus synthesis visualization',
+    ],
+    technicalDetails: 'Full-stack architecture with TypeScript CLI orchestrator and Next.js 16 web UI. Server-Sent Events (SSE) stream debate responses in real-time as each model responds. Core components: multi-agent debate orchestrator with configurable rounds, OpenRouter API integration for cross-model consistency, cost calculation engine tracking input/output tokens, consensus synthesis via judge model (Grok 4 Fast), and agreement matrix extraction as JSON. Database agnostic—all processing stateless and in-memory for fast iteration.',
+    challenge: 'Orchestrating true multi-agent coordination: managing 4 parallel API calls per round, synthesizing coherent consensus from divergent perspectives, and making agreement/disagreement extraction both accurate and interpretable—solved through explicit judge synthesis round and structured JSON consensus format.',
+    scope: {
+      duration: '3–4 weeks (MVP with CLI + web UI)',
+      team: 'Solo full-stack architect and builder',
+      status: 'Live MVP with CLI and web UI',
+    },
+    image: '/images/model-council.png',
+    technologies: ['Next.js 16', 'React 19', 'TypeScript', 'OpenRouter API', 'SSE Streaming', 'Tailwind v4', 'n8n Integration'],
+    liveLink: 'https://model-council-raza.vercel.app/',
+    highlight: 'Transparent multi-model consensus with agreement matrix',
+    status: 'Live MVP',
+  },
 ];
 
 function ProjectImageCarousel({ images }: { images: string[] }) {
