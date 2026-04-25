@@ -1,4 +1,4 @@
-﻿# MyPortfolio - Claude Code Project Memory
+# MyPortfolio - Claude Code Project Memory
 
 ## Overview
 Personal skills and portfolio website showcasing Abbas's 25+ years of IT
